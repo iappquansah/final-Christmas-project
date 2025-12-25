@@ -1,105 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Merry Christmas</title>
-
   <style>
+    /* ===== General ===== */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      font-family: Arial, sans-serif;
       background: linear-gradient(270deg, red, orange, yellow, green, blue, purple);
       background-size: 1200% 1200%;
       animation: colors 10s ease infinite;
-      overflow-x: hidden;
-      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 15px;
     }
-
     @keyframes colors {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
+    /* ===== Container ===== */
     .container {
+      width: 100%;
+      max-width: 450px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      padding: 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 20px;
+      gap: 15px;
       text-align: center;
-      padding: 20px;
-      background: rgba(255,255,255,0.85);
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
     }
 
+    /* ===== Text ===== */
     .first-wish {
-      font-size: x-large;
+      font-size: 1.5rem;
       font-weight: bold;
       color: green;
-      text-shadow: 2px 2px 2px white;
+      text-shadow: 1px 1px 2px white;
     }
-
     .second-wish {
-      font-size: 15px;
-      font-weight: bold;
+      font-size: 1rem;
       font-style: italic;
+      font-weight: bold;
       color: red;
       position: relative;
       animation: moveText 5s linear infinite;
     }
-
-    @keyframes moveText {
-      from { left: -150px; }
-      to { left: 150px; }
-    }
-
-    .tree {
-      width: 200px;
-      max-width: 80%;
-    }
+    @keyframes moveText { from { left: -50%; } to { left: 50%; } }
 
     .third-wish {
       font-weight: bold;
       color: blueviolet;
+      font-size: 1.1rem;
     }
 
     .closure {
-      opacity: 0.7;
+      opacity: 0.8;
       font-style: italic;
-      font-size: x-large;
+      font-size: 1.2rem;
       font-weight: bold;
       color: green;
-      text-shadow: 2px 2px 2px white;
-
+      text-shadow: 1px 1px 2px white;
     }
 
+    /* ===== Tree Image ===== */
+    .tree {
+      width: 70%;
+      max-width: 250px;
+      height: auto;
+      margin: 10px 0;
+    }
+
+    /* ===== Name Input ===== */
     #nameBox input {
-      padding: 10px;
+      width: 100%;
+      padding: 12px;
       border-radius: 8px;
       border: 1px solid #ccc;
       text-align: center;
+      font-size: 1rem;
+      margin-bottom: 10px;
     }
-
     #nameBox button,
     #shareBtn {
-      padding: 10px 15px;
+      width: 100%;
+      padding: 12px;
       border-radius: 8px;
       border: none;
-      background: green;
-      color: white;
       font-weight: bold;
+      font-size: 1rem;
       cursor: pointer;
     }
+    #nameBox button { background: green; color: white; }
+    #shareBtn { display: none; background: crimson; color: white; }
 
-    #shareBtn {
-      display: none;
-      background: crimson;
+    /* ===== Promo Box ===== */
+    #dataPromo {
+      width: 100%;
+      padding: 12px;
+      background: #fff8e1;
+      border-radius: 10px;
+      border: 2px solid #f1c40f;
+      margin-bottom: 10px;
+    }
+    .data-btn {
+      display: inline-block;
+      padding: 10px 15px;
+      background: #f1c40f;
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      margin-top: 5px;
     }
 
-    /* Snowflakes */
+    /* ===== Snowflakes ===== */
     .snowflake {
       position: fixed;
       top: -10px;
@@ -110,191 +133,107 @@
       animation-timing-function: linear;
       animation-iteration-count: infinite;
     }
+    @keyframes fall { to { transform: translateY(110vh); } }
 
-    @keyframes fall {
-      to {
-        transform: translateY(110vh);
-      }}
+    /* ===== Audio ===== */
+    audio { width: 100%; margin-top: 10px; }
 
-    #dataPromo {
-      margin-top: 5px;
-      padding: 12px;
-      background: #fff8e1;
-      border-radius: 10px;
-      border: 2px solid #f1c40f;
-          
-    }
-
-    .data-text {
-      font-weight: bold;
-      margin-bottom: 8px;
-      display: inline-block;
-    }
-
-    .data-btn {
-      display: inline-block;
-      padding: 10px 15px;
-      background: #f1c40f;
-      color: #000;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 8px;
-    }
-   
   </style>
 </head>
-
 <body>
-   
 
-  <div class="container">
-     <div id="dataPromo">
-    <div class="data-text">
-      📶 Affordable Data Deals Available
-    </div>
-    <a
-      href="https://www.dhnet4u.com/?ref=693aa81d839a55a902bca956"
-      target="_blank"
-      class="data-btn"
-    >
-      Get 1GB for ₵6
-    </a>
-    
+<div class="container">
+
+  <div id="dataPromo">
+    <div class="data-text">📶 Affordable Data Deals Available</div>
+    <a href="https://www.dhnet4u.com/?ref=693aa81d839a55a902bca956" target="_blank" class="data-btn">Get 1GB for ₵6</a>
   </div>
 
-    <p class="first-wish">Merry Christmas and a Happy New Year 🎄🎁✨</p>
-    <p class="second-wish">Wishing you peace, joy and laughter</p>
+  <p class="first-wish">Merry Christmas and a Happy New Year 🎄🎁✨</p>
+  <p class="second-wish">Wishing you peace, joy and laughter</p>
 
-    <img src="images/ab7deddb-c474-4de1-9ea1-ab976c69faa3.jpeg" class="tree">
+  <img src="images/ab7deddb-c474-4de1-9ea1-ab976c69faa3.jpeg" class="tree">
 
-    <p class="third-wish">
-      May your holidays sparkle with magic and warmth. Have a wonderful Christmas.
-    </p>
+  <p class="third-wish">
+    May your holidays sparkle with magic and warmth. Have a wonderful Christmas.
+  </p>
 
-     <p class="closure" id="fromText"></p>
+  <p class="closure" id="fromText"></p>
 
-    <div id="nameBox">
-      <input type="text" id="nameInput" placeholder="Enter your name">
-      <button onclick="saveName()">Continue</button>
-    </div>
-
-   
-
-    <button id="shareBtn">Share this message 🎁</button>
-
-    <audio controls loop id="bgSound">
-      <source src="songs/song1.mp3" type="audio/mpeg">
-    </audio>
+  <div id="nameBox">
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <button onclick="saveName()">Continue</button>
   </div>
 
-  <script>
-    const snowflakes = 50;
+  <button id="shareBtn">Share this message 🎁</button>
 
-    for (let i = 0; i < snowflakes; i++) {
-      const snow = document.createElement("div");
-      snow.className = "snowflake";
-      snow.innerHTML = "❄";
-      snow.style.left = Math.random() * 100 + "vw";
-      snow.style.fontSize = Math.random() * 20 + 10 + "px";
-      snow.style.animationDuration = Math.random() * 5 + 5 + "s";
-      snow.style.opacity = Math.random();
-      document.body.appendChild(snow);
-    }
+  <audio controls loop id="bgSound">
+    <source src="songs/song1.mp3" type="audio/mpeg">
+  </audio>
 
-    const params = new URLSearchParams(window.location.search);
+</div>
 
-    const originalSender = params.get("name") || "Isaac";
-let currentSender = originalSender;
-
-    // let senderName = params.get("name") || "Isaac";
-
-    const nameBox = document.getElementById("nameBox");
-    const fromText = document.getElementById("fromText");
-    const shareBtn = document.getElementById("shareBtn");
-
-    // fromText.textContent = "from " + senderName;
-
-    fromText.textContent = "from " + originalSender;
-
-    nameBox.style.display = "block";
-
-    function saveName() {
-      const input = document.getElementById("nameInput").value.trim();
-      if (input !== "") {
-        // senderName = input; // update sender name
-        // fromText.textContent = "from " + senderName;
-
-        currentSender = input; // update sender name
-        fromText.textContent = "from " + currentSender;
-        nameBox.style.display = "none";
-        shareBtn.style.display = "block";
-      }
-    }
-
-  
-
-  //   shareBtn.addEventListener("click", () => {
-
-  //     const shareLink = `${window.location.origin}${window.location.pathname.replace(/\/02-nextPage\.html$/, '/index.html')}?name=${encodeURIComponent(currentSender)}`;
-
-  //     const message =
-  // `🎄 Merry Christmas 🎁✨\n` +
-  // `You received a special message from ${currentSender}.\n\n` +
-  // `Tap below to open 👇\n` +
-  // shareLink;
-
-      
-  //     if (navigator.share) {
-  //       navigator.share({
-  //         title: "Merry Christmas 🎄",
-  //         text: message,
-  //         url: shareLink
-  //       });
-  //     } else {
-  //       const waUrl = "https://wa.me/?text=" + encodeURIComponent(message);
-  //       window.open(waUrl, "_blank");
-  //     }
-  //   });
-
-  shareBtn.addEventListener("click", () => {
-  // Make sure currentSender is defined
-  if (!currentSender || currentSender.trim() === "") currentSender = "Isaac";
-
-  // Build the link to your page
-  const shareLink = `${window.location.origin}/final-Christmas-project/index.html?name=${encodeURIComponent(currentSender)}`;
-
-  // Build the message
-  const message =
-    `🎄 Merry Christmas 🎁✨\n` +
-    `You received a special message from ${currentSender}.\n\n` +
-    `Tap below to open 👇\n` +
-    shareLink;
-
-  // Encode the message for WhatsApp
-  const encodedMessage = encodeURIComponent(message);
-
-  // Use navigator.share only if supported
-  if (navigator.share) {
-    navigator.share({
-      title: "Merry Christmas 🎄",
-      text: message // do NOT include url here, only text
-    }).catch((err) => console.log("Share failed:", err));
-  } else {
-    // WhatsApp fallback
-    const waUrl = `https://wa.me/?text=${encodedMessage}`;
-    window.open(waUrl, "_blank");
+<script>
+  // Snowflakes
+  const snowflakes = 40;
+  for (let i = 0; i < snowflakes; i++) {
+    const snow = document.createElement("div");
+    snow.className = "snowflake";
+    snow.innerHTML = "❄";
+    snow.style.left = Math.random() * 100 + "vw";
+    snow.style.fontSize = Math.random() * 18 + 8 + "px";
+    snow.style.animationDuration = Math.random() * 5 + 5 + "s";
+    snow.style.opacity = Math.random();
+    document.body.appendChild(snow);
   }
-});
 
+  // Name handling
+  const params = new URLSearchParams(window.location.search);
+  let currentSender = params.get("name") || "Isaac";
+  const nameBox = document.getElementById("nameBox");
+  const fromText = document.getElementById("fromText");
+  const shareBtn = document.getElementById("shareBtn");
 
-    if (localStorage.getItem("playSound") === "yes") {
+  fromText.textContent = "from " + currentSender;
+  nameBox.style.display = "block";
+
+  function saveName() {
+    const input = document.getElementById("nameInput").value.trim();
+    if (input !== "") {
+      currentSender = input;
+      fromText.textContent = "from " + currentSender;
+      nameBox.style.display = "none";
+      shareBtn.style.display = "block";
+    }
+  }
+
+  // Share button
+  shareBtn.addEventListener("click", () => {
+    const shareLink = `${window.location.origin}/final-Christmas-project/index.html?name=${encodeURIComponent(currentSender)}`;
+    const message =
+      `🎄 Merry Christmas 🎁✨\n` +
+      `You received a special message from ${currentSender}.\n\n` +
+      `Tap below to open 👇\n` +
+      shareLink;
+
+    const encodedMessage = encodeURIComponent(message);
+
+    if (navigator.share) {
+      navigator.share({ title: "Merry Christmas 🎄", text: message })
+        .catch(err => console.log("Share failed:", err));
+    } else {
+      const waUrl = `https://wa.me/?text=${encodedMessage}`;
+      window.open(waUrl, "_blank");
+    }
+  });
+
+  // Play background sound if triggered
+  if (localStorage.getItem("playSound") === "yes") {
     const audio = document.getElementById("bgSound");
-    audio.play().catch(() => {
-      console.log("Autoplay blocked");
-    });
+    audio.play().catch(() => console.log("Autoplay blocked"));
     localStorage.removeItem("playSound");
   }
-  </script>
+</script>
 
 </body>
 </html>

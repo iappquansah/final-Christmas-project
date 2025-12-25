@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Merry Christmas</title>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(270deg, red, orange, yellow, green, blue, purple);
+      background-size: 1200% 1200%;
+      animation: colors 10s ease infinite;
+      overflow-x: hidden;
+    }
+
+    @keyframes colors {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .first-wish {
+      font-size: x-large;
+      font-weight: bold;
+      color: green;
+      text-shadow: 2px 2px 2px white;
+    }
+
+    .second-wish {
+      font-size: 15px;
+      font-weight: bold;
+      font-style: italic;
+      color: red;
+      position: relative;
+      animation: moveText 5s linear infinite;
+    }
+
+    @keyframes moveText {
+      from { left: -150px; }
+      to { left: 150px; }
+    }
+
+    .tree {
+      width: 200px;
+      max-width: 80%;
+    }
+
+    .third-wish {
+      font-weight: bold;
+      color: blueviolet;
+    }
+
+    .closure {
+      opacity: 0.3;
+    }
+
+    /* Snowflake style */
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      color: white;
+      user-select: none;
+      pointer-events: none;
+      animation-name: fall;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+      }
+    }
+    .container1{
+      display: inline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <p class="first-wish">Merry Christmas and a Happy New Year 🎄🎁✨</p>
+    <p class="second-wish">Wishing you peace, joy and laughter</p>
+    <img src="images/ab7deddb-c474-4de1-9ea1-ab976c69faa3.jpeg" class="tree">
+    <p class="third-wish">May your holidays sparkle with magic and warmth. Have a wonderful Christmas.</p>
+    <p class="closure">from x_ela and Ike</p>
+
+    <audio controls loop>
+      <source src="songs/song1.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <script>
+    const snowflakes = 50;
+
+    for (let i = 0; i < snowflakes; i++) {
+      const snow = document.createElement("div");
+      snow.className = "snowflake";
+      snow.innerHTML = "❄";
+
+      snow.style.left = Math.random() * 100 + "vw";
+      snow.style.fontSize = Math.random() * 20 + 10 + "px";
+      snow.style.animationDuration = Math.random() * 5 + 5 + "s";
+      snow.style.opacity = Math.random();
+
+      document.body.appendChild(snow);
+    }
+  </script>
+
+</body>
+</html>
