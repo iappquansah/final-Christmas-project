@@ -233,36 +233,59 @@ let currentSender = originalSender;
 
   
 
-    shareBtn.addEventListener("click", () => {
+  //   shareBtn.addEventListener("click", () => {
+
+  //     const shareLink = `${window.location.origin}${window.location.pathname.replace(/\/02-nextPage\.html$/, '/index.html')}?name=${encodeURIComponent(currentSender)}`;
+
+  //     const message =
+  // `🎄 Merry Christmas 🎁✨\n` +
+  // `You received a special message from ${currentSender}.\n\n` +
+  // `Tap below to open 👇\n` +
+  // shareLink;
 
       
+  //     if (navigator.share) {
+  //       navigator.share({
+  //         title: "Merry Christmas 🎄",
+  //         text: message,
+  //         url: shareLink
+  //       });
+  //     } else {
+  //       const waUrl = "https://wa.me/?text=" + encodeURIComponent(message);
+  //       window.open(waUrl, "_blank");
+  //     }
+  //   });
 
-      const shareLink = `${window.location.origin}${window.location.pathname.replace(/\/02-nextPage\.html$/, '/index.html')}?name=${encodeURIComponent(currentSender)}`;
+  shareBtn.addEventListener("click", () => {
+  // Make sure currentSender is defined
+  if (!currentSender || currentSender.trim() === "") currentSender = "Isaac";
 
+  // Build the link to your page
+  const shareLink = `${window.location.origin}/final-Christmas-project/index.html?name=${encodeURIComponent(currentSender)}`;
 
-      const message =
-  `🎄 Merry Christmas 🎁✨\n` +
-  `You received a special message from ${currentSender}.\n\n` +
-  `Tap below to open 👇\n` +
-  shareLink;
+  // Build the message
+  const message =
+    `🎄 Merry Christmas 🎁✨\n` +
+    `You received a special message from ${currentSender}.\n\n` +
+    `Tap below to open 👇\n` +
+    shareLink;
 
-      
-      if (navigator.share) {
-        navigator.share({
-          title: "Merry Christmas 🎄",
-          text: message,
-          url: shareLink
-        });
-      } else {
-        const waUrl = "https://wa.me/?text=" + encodeURIComponent(message);
-        window.open(waUrl, "_blank");
-      }
+  // Encode the message for WhatsApp
+  const encodedMessage = encodeURIComponent(message);
 
-  //     const waUrl = "https://wa.me/?text=" + encodeURIComponent(message);
+  // Use navigator.share only if supported
+  if (navigator.share) {
+    navigator.share({
+      title: "Merry Christmas 🎄",
+      text: message // do NOT include url here, only text
+    }).catch((err) => console.log("Share failed:", err));
+  } else {
+    // WhatsApp fallback
+    const waUrl = `https://wa.me/?text=${encodedMessage}`;
+    window.open(waUrl, "_blank");
+  }
+});
 
-  // // Open WhatsApp in a new tab
-  // window.open(waUrl, "_blank");
-    });
 
     if (localStorage.getItem("playSound") === "yes") {
     const audio = document.getElementById("bgSound");
