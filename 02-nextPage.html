@@ -202,21 +202,30 @@
     }
 
     const params = new URLSearchParams(window.location.search);
-    let senderName = params.get("name") || "Isaac";
+
+    const originalSender = params.get("name") || "Isaac";
+let currentSender = originalSender;
+
+    // let senderName = params.get("name") || "Isaac";
 
     const nameBox = document.getElementById("nameBox");
     const fromText = document.getElementById("fromText");
     const shareBtn = document.getElementById("shareBtn");
 
-    fromText.textContent = "from " + senderName;
+    // fromText.textContent = "from " + senderName;
+
+    fromText.textContent = "from " + originalSender;
 
     nameBox.style.display = "block";
 
     function saveName() {
       const input = document.getElementById("nameInput").value.trim();
       if (input !== "") {
-        senderName = input; // update sender name
-        fromText.textContent = "from " + senderName;
+        // senderName = input; // update sender name
+        // fromText.textContent = "from " + senderName;
+
+        currentSender = input; // update sender name
+        fromText.textContent = "from " + currentSender;
         nameBox.style.display = "none";
         shareBtn.style.display = "block";
       }
@@ -226,9 +235,9 @@
 
     shareBtn.addEventListener("click", () => {
 
-      // const shareLink =` ${window.location.origin + window.location.pathname}?name=${ encodeURIComponent(senderName)}`;
+      
 
-      const shareLink = `${window.location.origin}${window.location.pathname.replace(/\/02-nextPage\.html$/, '/index.html')}?name=${encodeURIComponent(senderName)}`;
+      const shareLink = `${window.location.origin}${window.location.pathname.replace(/\/02-nextPage\.html$/, '/index.html')}?name=${encodeURIComponent(currentSender)}`;
 
 
       const message = `Merry Christmas 🎄🎁✨!  from  ${senderName} \nCheck your message here: ${shareLink}`;

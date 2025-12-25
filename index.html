@@ -62,6 +62,14 @@
       <button class="open">Open</button>
     </a>
   </div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const senderName = params.get("name") || "Isaac";
+
+    window.location.href = `02-nextPage.html?name=${encodeURIComponent(senderName)}`;
+   
+
+  </script>
 
 </body>
 </html>
