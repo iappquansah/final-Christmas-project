@@ -57,19 +57,28 @@
     <div class="box">
       <img src="images/ac9dad5c-31da-40a2-9881-2809e97de2e4.gif">
     </div>
+      <button class="open" onclick="goNext()">Open</button>
 
-    <a href="02-nextPage.html" onclick="localStorage.setItem('playSound','yes')">
-      <button class="open">Open</button>
-    </a>
   </div>
-  <script>
+  <!-- <script>
     const params = new URLSearchParams(window.location.search);
     const senderName = params.get("name") || "Isaac";
 
     window.location.href = `02-nextPage.html?name=${encodeURIComponent(senderName)}`;
-   
+  </script> -->
 
-  </script>
+  <script>
+  function goNext() {
+    const params = new URLSearchParams(window.location.search);
+    const senderName = params.get("name") || "Isaac";
+
+    localStorage.setItem("playSound", "yes");
+
+    window.location.href =
+      "02-nextPage.html?name=" + encodeURIComponent(senderName);
+  }
+</script>
+
 
 </body>
 </html>
