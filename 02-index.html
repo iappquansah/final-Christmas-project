@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+  <title>Christmas Message</title>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      text-align: center;
+    }
+
+    .introduction {
+      color: green;
+      font-size: xx-large;
+      font-weight: bold;
+    }
+
+    .box img {
+      max-width: 300px;
+      width: 80%;
+    }
+
+    .open {
+      background-color: rgb(234, 62, 62);
+      height: 40px;
+      width: 120px;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      font-size: 16px;
+    }
+
+    .open:hover {
+      opacity: 0.9;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <p class="introduction">🎄 Christmas Surprise</p>
+
+    <div class="box">
+      <img src="images/ac9dad5c-31da-40a2-9881-2809e97de2e4.gif">
+    </div>
+      <button class="open" onclick="goNext()">Open</button>
+
+  </div>
+  <!-- <script>
+    const params = new URLSearchParams(window.location.search);
+    const senderName = params.get("name") || "Isaac";
+
+    window.location.href = `03-nextPage.html?name=${encodeURIComponent(senderName)}`;
+  </script> -->
+
+  <script>
+  function goNext() {
+    const params = new URLSearchParams(window.location.search);
+    const senderName = params.get("name") || "Isaac";
+
+    localStorage.setItem("playSound", "yes");
+
+    window.location.href =
+      "02-nextPage.html?name=" + encodeURIComponent(senderName);
+  }
+</script>
+
+
+</body>
+</html>

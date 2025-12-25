@@ -3,6 +3,8 @@
 <head>  
   <title>Christmas Message</title>
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       margin: 0;
@@ -11,40 +13,59 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 10px;
     }
 
     .container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 30px;
+      gap: 20px;
       text-align: center;
+      width: 100%;
+      max-width: 400px;
+      padding: 15px;
+      box-sizing: border-box;
     }
 
     .introduction {
       color: green;
-      font-size: xx-large;
+      font-size: 6vw; /* Scales with screen width */
       font-weight: bold;
     }
 
     .box img {
+      width: 100%;
       max-width: 300px;
-      width: 80%;
+      height: auto;
+      border-radius: 10px;
     }
 
     .open {
       background-color: rgb(234, 62, 62);
-      height: 40px;
-      width: 120px;
+      height: 45px;
+      width: 60%;
+      max-width: 200px;
       color: white;
       border: none;
-      border-radius: 20px;
-      font-size: 16px;
+      border-radius: 25px;
+      font-size: 4vw; /* Scales with screen width */
+      cursor: pointer;
+      transition: opacity 0.2s;
     }
 
     .open:hover {
       opacity: 0.9;
-      cursor: pointer;
+    }
+
+    @media (max-width: 350px) {
+      .introduction {
+        font-size: 8vw;
+      }
+      .open {
+        font-size: 5vw;
+        width: 70%;
+      }
     }
   </style>
 </head>
@@ -55,30 +76,22 @@
     <p class="introduction">🎄 Christmas Surprise</p>
 
     <div class="box">
-      <img src="images/ac9dad5c-31da-40a2-9881-2809e97de2e4.gif">
+      <img src="images/ac9dad5c-31da-40a2-9881-2809e97de2e4.gif" alt="Christmas GIF">
     </div>
-      <button class="open" onclick="goNext()">Open</button>
 
+    <button class="open" onclick="goNext()">Open</button>
   </div>
-  <!-- <script>
-    const params = new URLSearchParams(window.location.search);
-    const senderName = params.get("name") || "Isaac";
-
-    window.location.href = `03-nextPage.html?name=${encodeURIComponent(senderName)}`;
-  </script> -->
 
   <script>
-  function goNext() {
-    const params = new URLSearchParams(window.location.search);
-    const senderName = params.get("name") || "Isaac";
+    function goNext() {
+      const params = new URLSearchParams(window.location.search);
+      const senderName = params.get("name") || "Isaac";
 
-    localStorage.setItem("playSound", "yes");
+      localStorage.setItem("playSound", "yes");
 
-    window.location.href =
-      "02-nextPage.html?name=" + encodeURIComponent(senderName);
-  }
-</script>
-
+      window.location.href = "02-nextPage.html?name=" + encodeURIComponent(senderName);
+    }
+  </script>
 
 </body>
 </html>
