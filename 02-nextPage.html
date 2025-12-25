@@ -226,7 +226,7 @@
 
     shareBtn.addEventListener("click", () => {
 
-      const shareLink = window.location.origin + window.location.pathname + "?name=" + encodeURIComponent(senderName);
+      const shareLink =` ${window.location.origin + window.location.pathname}?name=${ encodeURIComponent(senderName)}`;
 
 
       const message = `Merry Christmas 🎄🎁✨!  from  ${senderName} \nCheck your message here: ${shareLink}`;
