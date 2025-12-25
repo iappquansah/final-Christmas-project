@@ -220,16 +220,37 @@
       }
     }
 
+    // shareBtn.addEventListener("click", () => {
+    //   if (navigator.share) {
+    //     navigator.share({
+    //       title: "Merry Christmas 🎄",
+    //       text: "I sent you a Christmas message 🎁",
+    //       url: window.location.href
+    //     });
+    //   } else {
+    //     alert("Sharing is not supported on this device.");
+    //   }
+    // });
+
     shareBtn.addEventListener("click", () => {
+      const nameParam = params.get("name") || "";
+      const message = `Merry Christmas 🎄🎁✨! ${nameParam ? "from " + nameParam : ""}\nCheck your message here: ${window.location.href}`;
+      
       if (navigator.share) {
         navigator.share({
           title: "Merry Christmas 🎄",
-          text: "I sent you a Christmas message 🎁",
+          text: message,
           url: window.location.href
         });
       } else {
-        alert("Sharing is not supported on this device.");
+        const waUrl = "https://wa.me/?text=" + encodeURIComponent(message);
+        window.open(waUrl, "_blank");
       }
+
+  //     const waUrl = "https://wa.me/?text=" + encodeURIComponent(message);
+
+  // // Open WhatsApp in a new tab
+  // window.open(waUrl, "_blank");
     });
 
     if (localStorage.getItem("playSound") === "yes") {
