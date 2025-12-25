@@ -240,7 +240,12 @@ let currentSender = originalSender;
       const shareLink = `${window.location.origin}${window.location.pathname.replace(/\/02-nextPage\.html$/, '/index.html')}?name=${encodeURIComponent(currentSender)}`;
 
 
-      const message = `Merry Christmas 🎄🎁✨!  from  ${currentSender} \nCheck your message here: ${shareLink}`;
+      const message =
+  `🎄 Merry Christmas 🎁✨\n` +
+  `You received a special message from ${currentSender}.\n\n` +
+  `Tap below to open 👇\n` +
+  shareLink;
+
       
       if (navigator.share) {
         navigator.share({
